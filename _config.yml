@@ -302,6 +302,7 @@ defaults:
       type: posts
     values:
       layout: single
+      entries_layout: list
       author_profile: true
       read_time: true
       comments: # true

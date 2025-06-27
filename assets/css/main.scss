@@ -4,26 +4,103 @@ search: false
 
 @charset "utf-8";
 
-/* 1. 사용자 정의 변수 먼저 import */
-@import "custom/variables"; // 반드시 _sass/custom/variables.scss 파일이 존재해야 함
+/* =========================================================================
+   1. 사용자 정의 변수 (색상·여백 등) ― 필요하면 _sass/custom/variables.scss 작성
+   ========================================================================= */
+@import "custom/variables";   /* ← 파일이 없으면 이 줄을 주석 처리하세요 */
 
-/* 2. 스킨 및 테마 설정 */
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
+/* =========================================================================
+   2. Minimal Mistakes 기본 스킨 + 레이아웃 로드
+   ========================================================================= */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; /* 스킨 */
+@import "minimal-mistakes";  /* 핵심 파셜 */
 
-/* 3. 커스텀 웹폰트 정의 */
+/* =========================================================================
+   3. 커스텀 웹폰트 정의
+   -------------------------------------------------------------------------
+   - Pretendard: 본문 가독성 ↑, 한글 지원
+   - GowunBatang: 제목 · 본문 서브폰트로 활용
+   ========================================================================= */
+/* Pretendard CDN */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* GowunBatang Noonnu CDN */
 @font-face {
   font-family: 'GowunBatang-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff')
+       format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-/* 4. 전체 텍스트와 헤더에 폰트 적용 */
+/* =========================================================================
+   4. 글로벌 타이포그래피 오버라이드
+   ========================================================================= */
 body {
+  /* 시스템-UI → Pretendard 우선, 없으면 GowunBatang, 그 외 기본 sans-serif */
+  font-family: 'Pretendard', 'GowunBatang-Regular',
+               -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* 헤더 계열(글 제목 등) — 깔끔한 가독성을 위해 Pretendard 사용,
+   필요하면 GowunBatang으로 교체해도 무방 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* 코드 블록은 고정폭 유지 (폰트 변경 X) */
+pre, code, kbd, samp {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* =========================================================================
+   5. 리스트형 레이아웃(Chirpy 느낌) 미세 보정 ― 선택 사항
+   ========================================================================= */
+/* 각 포스트 카드 여백 최소화 */
+.archive__item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+/* 포스트 메타(작성 날짜 등) 회색 톤 축소 */
+.page__meta, .archive__item-meta {
+  color: #8a8a8a;
+  font-size: .83rem;
+}
+
+/* 링크 기본색 약간 진하게 */
+a {
+  color: #2962ff;      /* Pretendard와 잘 어울리는 파란색 */
+  text-decoration-thickness: .1rem;
+}
+a:hover {
+  color: #0039cb;
+}
+
+/* =========================================================================
+   6. 사이드바(왼쪽 네비) — 글자 크기 살짝 조정 (선택)
+   ========================================================================= */
+.sidebar__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.sidebar__subtitle {
+  font-size: .9rem;
   font-family: 'GowunBatang-Regular', serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'GowunBatang-Regular', serif;
+/* =========================================================================
+   7. 모바일 뷰 최적화(선택)
+   ========================================================================= */
+@media (max-width: 768px) {
+  body {
+    font-size: 95%;
+  }
+  .page__title {
+    font-size: 1.6rem;
+  }
 }
