@@ -61,9 +61,17 @@ pre, code, kbd, samp {
    5. 리스트형 레이아웃(Chirpy 느낌) 미세 보정 ― 선택 사항
    ========================================================================= */
 /* 각 포스트 카드 여백 최소화 */
-.archive__item {
-  padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(0,0,0,.05);
+.archive {
+  .archive__item {
+    padding: 0.6rem 0;                       /* 위아래 여백 줄이기 */
+    margin-bottom: 0.4rem;                   /* 항목 간 살짝 여백 */
+    border-bottom: 1px solid #eaeaea;        /* 밝은 회색 구분선 */
+  }
+
+  .archive__item:last-child {
+    border-bottom: none;                     /* 마지막 글 구분선 제거 */
+    margin-bottom: 1.2rem;                   /* 마지막 아래 여백 살짝 더 */
+  }
 }
 
 /* 포스트 메타(작성 날짜 등) 회색 톤 축소 */
@@ -74,7 +82,7 @@ pre, code, kbd, samp {
 
 /* 링크 기본색 약간 진하게 */
 a {
-  color: #2962ff;      /* Pretendard와 잘 어울리는 파란색 */
+  color: #2962ff;
   text-decoration-thickness: .1rem;
 }
 a:hover {
