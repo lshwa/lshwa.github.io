@@ -58,26 +58,40 @@ pre, code, kbd, samp {
 }
 
 /* =========================================================================
-   5. 리스트형 레이아웃(Chirpy 느낌) 미세 보정 ― 선택 사항
+   5. 리스트형 레이아웃(Chirpy 느낌) 간격 최소화 버전
    ========================================================================= */
-/* 각 포스트 카드 여백 최소화 */
 .archive {
   .archive__item {
-    padding: 0.6rem 0;                       /* 위아래 여백 줄이기 */
-    margin-bottom: 0.4rem;                   /* 항목 간 살짝 여백 */
-    border-bottom: 1px solid #eaeaea;        /* 밝은 회색 구분선 */
+    padding: 0.3rem 0;                       /* 기본 1.2rem → 0.3rem */
+    margin-bottom: 0.2rem;                   /* 아래 간격 최소화 */
+    border-bottom: 1px solid #f2f2f2;        /* 더 연한 구분선 */
   }
 
   .archive__item:last-child {
-    border-bottom: none;                     /* 마지막 글 구분선 제거 */
-    margin-bottom: 1.2rem;                   /* 마지막 아래 여백 살짝 더 */
+    border-bottom: none;
+    margin-bottom: 0.6rem;
   }
 }
 
-/* 포스트 메타(작성 날짜 등) 회색 톤 축소 */
+/* 제목과 날짜 사이 여백 제거 */
+.archive__item-title {
+  margin-bottom: 0.1rem;
+  line-height: 1.3;
+}
+
+/* 포스트 요약 간격/크기 축소 */
+.archive__item-excerpt {
+  margin-top: 0.1rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* 포스트 메타(작성 날짜 등) 더 작고 흐리게 */
 .page__meta, .archive__item-meta {
-  color: #8a8a8a;
-  font-size: .83rem;
+  color: #999;
+  font-size: .78rem;
+  margin-bottom: 0.1rem;
 }
 
 /* 링크 기본색 약간 진하게 */
