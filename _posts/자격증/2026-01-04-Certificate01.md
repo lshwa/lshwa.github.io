@@ -802,6 +802,50 @@ sidebar:
 
 ## 4과목 : 프로그래밍 언어 활용
 
+**1. WAS(Web Application Server)가 아닌 것은?**
+
+① JEUS
+
+② JVM
+
+③ Tomcat
+
+④ WebSphere
+
+> 정답 : 2번
+>
+> - 웹 애플리케이션 서버는 사용자에게 동적 서비스를 제공하기 위해 웹 서버로부터 요청을 받아 데이터 처리를 수행하거나, 웹 서버와 데이터베이스 서버 또는 웹 서버와 파일 서버 사이에서 인터페이스 역할을 수행하는 서버이다.
+> - 제품에는 **Oracle WebLogic, Apache Tomcat, IBM WebSphere, JEUS** 등이 있다. 
+
+
+
+**2. 다음 자바 코드를 실행한 결과는?**
+
+~~~java
+int x = 1, y = 6;
+while(y--){
+  x++;
+}
+System.out.println("x ="+ x + "y = "+ y);
+~~~
+
+① x = 7, y = 0
+
+② x = 6, y = -1
+
+③ x = 7 , y = -1
+
+④ Unresolved complication problem 오류 발생
+
+> 정답 : 4번
+>
+> - 자바의 경우 while의 결과값이 **Boolean 타입이 아닌 경우 오류가 발생한다.**
+> - 현재 y 는 int 형의 증감 연산자를 사용한 것이기에 결과적으로 int 형이기 때문에 **오류가 발생한다.**
+
+
+
+
+
 
 
 
