@@ -1068,3 +1068,70 @@ RSA			DES			ARIA			ECC			SEED 		AES
 
 ### 2023년 3회 기출
 
+**1. 다음은 오류가 발생하는 JAVA 프로그램이다. 프로그램을 분석하여 오류가 발생하는 라인을 쓰시오.**
+
+~~~JAVA
+class Person {
+  private String name;
+  public Person(String val) {
+    name = val;
+  }
+  public static String get() {
+    return name;
+  }
+  public void print() {
+    System.out.println(name);
+  }
+  
+  public class Test{
+    public static void main(String[] args) {
+      Person obj = new Person("Kim");
+      obj.print();
+    }
+  }
+}
+~~~
+
+
+
+정답 :
+
+**return name** 쪽 라인
+
+
+
+> **static 메서드에서 인스턴스 변수 접근**
+>
+> - name은 인스턴스 변수
+> - `get()`은 **static 메서드** 
+
+
+
+**2. 다음 설명에 해당하는 프로토콜을 쓰시오**
+
+~~~bash
+- 거리 벡터 라우팅 프로토콜이라고도 불리며, 최단 경로 탐색에 Bellman-Ford 알고리즘이 사용된다.
+- 소규모 동종의 네트워크 내에서는 효율적이나, 최대 홉(Hop) 수가 제한되므로 대규모 네트워크에서는 사용할 수 없다.
+- 일정 시간 동안 라우팅 정보가 갱신되지 않으면 해당 경로를 이상 상태로 간주한다. 
+~~~
+
+
+
+정답 : 
+
+**RIP, 경로 선택 정보 프로토콜, Routing Information Protocol**
+
+
+
+> 경로 (Hop) 수 제한 + 최대 15 hop
+
+
+
+---
+
+### 2024 1회 기출
+
+
+
+
+
