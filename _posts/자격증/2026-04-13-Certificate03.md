@@ -1278,6 +1278,174 @@ Key Logger Attack		사회공학 기법		 TearDrop			SMURFING
 
 ### 2024년 3회 기출
 
+**1. 다음 설명에 해당하는 알맞은 용어를 쓰시오.**
+
+~~~bash
+- IP나 ICMP의 특성을 악용하여 엄청난 양의 데이터를 한 사이트에 집중적으로 보냄으로써 네트워크를 불능 상태로 만드는 공격 방법이다.
+- 공격자는 송신 주소를 공격 대상지의 IP 주소로 위장하고 해당 네트워크 라우터의 브로드캐스트 주소를 수신지로 하여 패킷을 전송하면, 라우터의 브로드캐스트 주소로 수신된 패킷은 해당 네트워크 내의 모든 컴퓨터로 전송된다.
+- 해당 네트워크 내의 모든 컴퓨터는 수신된 패킷에 대한 응답 메시지를 송신 주소인 공격 대상지로 집중적으로 전송하게 되는데, 이로 인해 공격 대상지는 네트워크 과부화로 인해 정상적인 서비스를 수행할 수 없게 된다. 
+~~~
+
+
+
+정답 :
+
+**Smurfing**
+
+
+
+> - **Smurfing 공격** : **ICMP 요청을 이용한 반사 + 증폭 공격** (DDos)
+>   - 공격자가 ICMP Echo Request (Ping)을 보냄
+>   - 출발지 IP를 피해자로 위조
+>   - 브로드캐스트 주소로 보냄
+>   - 여러 호스트가 피해자에게 응답 
+> - **Ping of Death** : **정상 크기보다 큰 패킷을 보내서 시스템을 다운**
+
+
+
+**2. 다음 C언어로 구현된 프로그램을 분석하여 그 결과를 쓰시오.**
+
+~~~c
+#include <stdio.h>
+int func() {
+  static int x = 0;
+  x += 2;
+  return x;
+}
+
+int main(){
+  int x = 0;
+  int sum = 0;
+  for(int i = 0; i < 4; i++) {
+    x++;
+    sum += func();
+  }
+  printf("%d", sum);
+  return 0;
+}
+~~~
+
+
+
+정답 : 
+
+**20**
+
+
+
+> **static 변수 : 한 번만 초기화 되고 계속 값 유지..**
+
+
+
+**3. 소프트웨어 공학의 디자인 패턴(Design Pattern)에 대한 다음 설명에서 괄호에 공통으로 들어갈 알맞은 답을 쓰시오.**
+
+~~~bash
+-(  )패턴은 클래스나 객체들이 서로 상호작용하는 방법이나 책임 분배 방법을 정의하는 패턴이다.
+-(  )패턴은 하나의 객체로 수행할 수 없는 작업을 여러 객체로 분배하면서 결합도를 최소화 할 수 있도록 도와준다. 
+-(  )패턴에는 책임 연쇄(Chain of Responsibility), 반복자(Iterator), 옵서버(Observer) 패턴 등이 있다. 
+~~~
+
+
+
+정답 :
+
+**행위**
+
+
+
+> - **생성 패턴** : Singleton, Factory, Abstract Factory, Builder, Prototype
+> - **구조 패턴** : Adapter, Bridge, Composite, Decorator
+> - **행위 패턴** : Observer, Strategy, Command, Iterator, State, Template Method
+
+
+
+**4. 다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.**
+
+~~~java
+public class Main{
+  public static void main(String[] args) {
+    B a = new D();
+    D b = new D();
+    System.out.print(a.getX() + a.x + b.getX() + b.x);
+  }
+}
+
+class B {
+  int x =3;
+  int getX(){
+    return x * 2;
+  }
+}
+
+class D extends B {
+  int x = 7;
+  int getX() {
+    return x * 3;
+  }
+}
+~~~
+
+
+
+정답 :
+
+**52**
+
+
+
+> - **메서드 -> 객체 따라감**
+> - **변수 -> 타입 따라감**
+
+
+
+**5. 다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.**
+
+~~~java
+class Printer {
+  void print(Integer a) {
+    System.out.print("A" + a);
+  }
+  void print(Object a) {
+    System.out.print("B" + a);
+  }
+  void print(Number a) {
+    System.out.print("C" + a);
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    new Collection<>(0).print();
+  }
+  public static class Collection<T> {
+    T value;
+    public Collection(T t) {
+      value = t;
+    }
+    public void print() {
+      new Printer().print(value);
+    }
+  }
+}
+~~~
+
+
+
+정답 :
+
+**B0**
+
+
+
+> - **오버로딩은 런타임이 아니라 컴파일타임에 결정**
+>   - `Collection<T>` 내부에서 value 선언 타입은 T라서 **Object**로 해석
+
+
+
+---
+
+### 2025년 1회 기출
+
 
 
 
