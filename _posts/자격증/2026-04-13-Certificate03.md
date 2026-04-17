@@ -1446,9 +1446,142 @@ public class Main {
 
 ### 2025년 1회 기출
 
+**1. 다음 설명에 해당하는 알맞은 용어를 영문 약어로 쓰시오.**
+
+~~~bash
+- 다항식 코드를 사용하여 오류를 검출하는 방식이다.
+- 동기식 전송에서 주로 사용되며, HDLC 프레임의 FCS(프레임 검사 순서 필드)에 사용된다.
+- 집단 오류를 검출할 수 있고, 검출률이 높으므로 가장 많이 사용한다. 
+~~~
 
 
 
+정답 :
+
+**CRC**
+
+
+
+> - **CRC** : 오류 검출용 (수정 X), 네트워크 통신에서 사용, 
+>   - 데이터에 대해 다항식 나눗셈을 수행, 나머지를 이용해 오류를 검출하는 방식
+
+
+
+<!-- 그 외 실행 결과 코드 문제 연습 많이 하기 -->
+
+---
+
+### 2025년 2회 기출
+
+**1. 서비스 공격(Dos) 공격 기법 중 TCP가 신뢰성 있는 전송을 위해 사용하는 3-way-handshake 과정을 의도적으로 중단시킴으로써 공격 대상지인 서버가 대기 상태에 놓여 정상적인 서비스를 수행하지 못하게 하는 공격 방법을 가리키는 용어를 쓰시오.**
+
+
+
+정답 :
+
+**SYN Flooding**
+
+
+
+> - **SYN Flooding** : TCP 3-way handshake를 악용한 연결 자언 고갈 공격
+
+
+
+**2. 다음 Java로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.**
+
+~~~java
+public class Main {
+  public static class Parent {
+    public int x(int i) {return i + 2; }
+    public static String id() {return "P"; }
+  }
+  public static class Child extends Parent {
+    public int x(int i) {return i + 3; }
+    public String x(String s) {return s + "R"; }
+    public static String id() {return "C"; }
+  }
+  public static void main(String[] args) {
+    Parent ref = new Child();
+    System.out.println(ref.x(2) + ref.id());
+  }
+}
+~~~
+
+
+
+정답 :
+
+**5P**
+
+
+
+> - `ref.x(2)`  : `x(int)` 는 **인스턴스 메서드**기 때문에 실제 객체 기준으로 호출
+> - `ref.id()` : **static 메서드**라서 **오버라이딩이 아니라 Hiding** 처리해야 함.
+>   - **참조 변수 타입 기준**으로 결정
+
+
+
+---
+
+### 2025년 3회 기출
+
+**1. 다음 설명에 해당하는 알맞은 용어를 영문 약어로 쓰시오.**
+
+~~~bash
+- 사용자가 패스워드를 요청할 때마다 암호 알고리즘과 해시 함수를 이용하여 새로운 일회용 패스워드를 생성하며, 한 번 사용된 패스워드는 폐끼되어 재사용할 수 없다.
+- 주로 은행 및 금융 거래 시 사용자 본인 인증을 강화하기 위해 널리 사용된다.
+~~~
+
+
+
+정답 :
+
+**OTP (One-Time Password)**
+
+
+
+> - **OTP** : 일회성, 재사용 불가, 시간 또는 횟수 기반, 보안 강화
+
+
+
+**2. 다음 C언어로 구현된 프로그램을 분석하여 그 실행 결과를 쓰시오.**
+
+~~~c
+#include <stdio.h>
+struct Node {
+  struct Node* next;
+  unsigned int x;
+};
+
+int main() {
+  struct Node t1 = {0, 5u};
+  struct Node t2 = {0, 7u};
+  struct Node t3 = {0, 11u};
+	t3.next = &t2;
+  t2.next = &t1;
+  struct Node* curr = &t3;
+  int sum = 0;
+  
+  while (curr) {
+    sum = sum * 3 + curr->x;
+    curr = curr->next;
+  }
+  
+  sum = (sum ^ 42u) + 100u;
+  printf("%u\n", sum);
+}
+~~~
+
+
+
+정답 :
+
+**187**
+
+
+
+> - `^` : **비트 XOR 연산**
+> - `u` : unsigned Int 자료형
 
 
 
